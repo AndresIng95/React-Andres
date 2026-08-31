@@ -1,7 +1,7 @@
-console.log("Hello World Rick and Morty");
+console.log("Hello World Star Wars");
 
 async function obtenerPersonajes() {
-    const response = await fetch("https://rickandmortyapi.com/api/character");
+    const response = await fetch("https://swapi.dev/api/people/");
     const data = await response.json();
     console.log('Personajes:', data.results);
     return data.results;
@@ -16,10 +16,17 @@ function pintarPersonajes(personajes) {
     personajes.forEach(personaje => {
         tarjetasHTML += `
         <div class="card">
-            <img src="${personaje.image}" alt="${personaje.name}">
+
             <h3>${personaje.name}</h3>
-            <p class="species">${personaje.species}</p>
-            <p class="status">${personaje.status}</p>
+
+            <p>Height: ${personaje.height} cm</p>
+
+            <p>Mass: ${personaje.mass} kg</p>
+
+            <p>Hair: ${personaje.hair_color}</p>
+
+            <p>Eyes: ${personaje.eye_color}</p>
+
         </div>
         `;
     });
